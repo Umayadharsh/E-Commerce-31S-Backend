@@ -21,7 +21,7 @@ app.use(express.json());
 // ✅ CORS — ADMIN + USER FRONTEND
 const allowedOrigins = [
   "http://localhost:5173", // admin
-  "http://localhost:5174", // user
+  "https://e-commerce-31-s-frontend.vercel.app/", // user
 ];
 
 app.use(
