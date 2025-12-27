@@ -114,13 +114,12 @@ const registerUser = async (req, res) => {
 
     const user = await userModel.findOne({ email });
     if (!user) {
+      
       return res.json({ success: false, message: "User not found" });
     }
 
     // 1️⃣ CREATE TOKEN
     const resetToken = crypto.randomBytes(32).toString("hex");
-
-    console.log("RESET TOKEN (PLAIN):", resetToken);
 
     // 2️⃣ HASH TOKEN
     const hashedToken = crypto
@@ -130,11 +129,11 @@ const registerUser = async (req, res) => {
 
     // 3️⃣ SAVE TO USER
     user.resetPasswordToken = hashedToken;
-    user.resetPasswordExpire = Date.now() + 15 * 60 * 1000; // 15 mins
+    user.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
     await user.save();
 
-    // 4️⃣ CREATE RESET URL
-   const resetUrl =  `${process.env.FRONTEND_URL}/reset-password/${token}`;
+    // 4️⃣ CREATE RESET URL (✅ FIXED)
+    const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
     // 5️⃣ SEND EMAIL
     await SendEmail({
@@ -152,7 +151,6 @@ const registerUser = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
-
 
 // =========================
 // RESET PASSWORD
