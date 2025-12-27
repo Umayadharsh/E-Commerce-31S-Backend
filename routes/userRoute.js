@@ -18,6 +18,7 @@ router.post("/admin", adminLogin);
 router.post("/forgot-password", forgotPassword);
 router.post("/reset-password/:token", resetPassword);
 router.post("/update", userAuth , updateProfile); 
+
 router.post("/change-password", userAuth, changePassword);
 
 export default router;
