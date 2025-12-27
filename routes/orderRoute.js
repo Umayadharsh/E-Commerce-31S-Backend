@@ -6,7 +6,7 @@ import {
   createRazorpayOrder,
   verifyRazorpayPayment,
 } from "../controllers/orderController.js";
-import userAuth from "../middleware/userAuth.js";
+import userAuth from "../middleware/UserAuth.js";
 import adminAuth from "../middleware/adminauth.js";
 import { updateOrderStatus } from "../controllers/orderController.js";
 
