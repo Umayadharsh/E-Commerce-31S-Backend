@@ -8,7 +8,7 @@ import {
   updateProfile,
   changePassword
 } from "../controllers/userController.js";
-import userAuth from "../middleware/userAuth.js";
+import userAuth from "../middleware/UserAuth.js";
 
 const router = express.Router();
 
