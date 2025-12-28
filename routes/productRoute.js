@@ -1,5 +1,5 @@
 import express from "express";
-import upload from "../middleware/multer.js";
+import uploads from "../middleware/multer.js";
 import adminAuth from "../middleware/adminauth.js";
 import {
   addProduct,
@@ -15,7 +15,7 @@ const router = express.Router();
 router.post(
   "/add",
   adminAuth,
-  upload.array("images", 4), // 👈 THIS MUST BE "images"
+  uploads.array("images", 4), // 👈 THIS MUST BE "images"
   addProduct
 );
 
