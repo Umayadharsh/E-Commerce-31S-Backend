@@ -47,11 +47,6 @@ const productSchema = new mongoose.Schema(
       enum: ["classic", "pendant", "minimal"],
       required: true,
     },
-
-    date : {
-      type : Number,
-      required : true
-    }
   },
   {
     timestamps: true, // createdAt & updatedAt
